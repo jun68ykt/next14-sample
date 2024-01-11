@@ -6,8 +6,8 @@ import connectDB from "@/app/utils/database";
 export async function POST() {
     try {
         await connectDB()
-        return NextResponse.json({message: "ログイン成功"})
+        return NextResponse.json({ message: "ログイン成功" })
     } catch (err) {
-        return NextResponse.json({message: "ログイン失敗"})
+        return NextResponse.json({ message: "ログイン失敗" })
     }
 }
