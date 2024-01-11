@@ -1,0 +1,17 @@
+POST http://localhost:3000/api/item/create
+Content-Type: application/json;charset=UTF-8
+
+{
+  "title": "仮タイトル999",
+  "image": "仮イメージ999",
+  "price": "1000999",
+  "description": "仮説明999",
+  "email": "dummy999@gmail.com"
+}
+
+###
+
+DELETE http://localhost:3000/api/item/delete/659ff3b23e0271b993c2e396
+Accept: application/json
+
+###
