@@ -1,4 +1,4 @@
-GET http://localhost:3000/api/item/update/abc123
+PUT http://localhost:3000/api/item/update/abc123
 Accept: application/json
 
 ###
