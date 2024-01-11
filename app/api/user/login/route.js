@@ -10,7 +10,10 @@ export async function POST(request) {
         await connectDB()
         const user = await UserModel.findOne({ email })
         if (user) {
-            return NextResponse.json({ message: "ログイン成功" })
+            if (password === user.password)
+                return NextResponse.json({ message: "ログイン成功" })
+
+            return NextResponse.json({ message: "ログイン失敗: パスワードが間違っています" })
         }
         return NextResponse.json({ message: "ログイン失敗: ユーザー登録をしてください"})
     } catch (err) {
