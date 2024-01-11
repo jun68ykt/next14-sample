@@ -1,0 +1,37 @@
+POST http://localhost:3000/api/item/create
+Content-Type: application/json;charset=UTF-8
+
+{
+  "title": "仮タイトル1",
+  "image": "仮イメージ1",
+  "price": "10001",
+  "description": "仮説明1",
+  "email": "dummy1@gmail.com"
+}
+
+###
+
+POST http://localhost:3000/api/item/create
+Content-Type: application/json;charset=UTF-8
+
+{
+  "title": "仮タイトル2",
+  "image": "仮イメージ2",
+  "price": "10002",
+  "description": "仮説明2",
+  "email": "dummy2@gmail.com"
+}
+
+###
+
+POST http://localhost:3000/api/item/create
+Content-Type: application/json;charset=UTF-8
+
+{
+  "title": "仮タイトル3",
+  "image": "仮イメージ3",
+  "price": "10003",
+  "description": "仮説明3",
+  "email": "dummy3@gmail.com"
+}
+
