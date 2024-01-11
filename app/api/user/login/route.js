@@ -27,7 +27,7 @@ export async function POST(request) {
 
             return NextResponse.json({ message: "ログイン失敗: パスワードが間違っています" })
         }
-        return NextResponse.json({ message: "ログイン失敗: ユーザー登録をしてください"})
+        return NextResponse.json({ message: "ログイン失敗: ユーザー登録をしてください" })
     } catch (err) {
         return NextResponse.json({ message: "ログイン失敗" })
     }
