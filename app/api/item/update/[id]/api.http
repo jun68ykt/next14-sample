@@ -1,4 +1,22 @@
-PUT http://localhost:3000/api/item/update/abc123
+GET http://localhost:3000/api/item/readsingle/659f94f53e0271b993c2e380
 Accept: application/json
 
 ###
+
+PUT http://localhost:3000/api/item/update/659f94f53e0271b993c2e380
+Accept: application/json
+Content-Type: application/json;charset=UTF-8
+
+{
+  "title": "仮タイトル1",
+  "image": "仮イメージ1",
+  "price": "10001",
+  "description": "仮説明1",
+  "email": "dummy1@gmail.com"
+}
+
+###
+
+GET http://localhost:3000/api/item/readsingle/659f94f53e0271b993c2e380
+Accept: application/json
+
