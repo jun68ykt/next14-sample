@@ -1,22 +1,45 @@
+POST http://localhost:3000/api/user/login
+Content-Type: application/json
+
+{
+  "email": "dummy1@gmail.com",
+  "password": "password1"
+}
+
+###
+
 < {%
-    request.variables.set("token", "eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImR1bW15MUBnbWFpbC5jb20iLCJleHAiOjE3MDUxMTY4MTB9.F1wS3CWCRWZxqDolYyBqpIA-nVf7yJ8Dk9_c9_Xb-bw")
+    request.variables.set(
+        "token",
+        "eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImR1bW15MUBnbWFpbC5jb20iLCJleHAiOjE3MDUxMjAzMDN9.F8Uc-AkqsDyz4g3D1n2xBG0dvNRQYOFpi2KUM3rIUbE"
+    )
 %}
 POST http://localhost:3000/api/item/create
 Content-Type: application/json;charset=UTF-8
 Authorization: Bearer {{token}}
 
 {
-  "title": "仮タイトル999",
-  "image": "仮イメージ999",
-  "price": "1000999",
-  "description": "仮説明999",
-  "email": "dummy999@gmail.com"
+  "title": "仮タイトル9",
+  "image": "仮イメージ9",
+  "price": "10009",
+  "description": "仮説明9",
+  "email": "dummy1@gmail.com"
 }
 
 ###
+
 < {%
-    request.variables.set("token", "eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImR1bW15MUBnbWFpbC5jb20iLCJleHAiOjE3MDUxMTY4MTB9.F1wS3CWCRWZxqDolYyBqpIA-nVf7yJ8Dk9_c9_Xb-bw")
+    request.variables.set(
+        "token",
+        "eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImR1bW15MUBnbWFpbC5jb20iLCJleHAiOjE3MDUxMjAzMDN9.F8Uc-AkqsDyz4g3D1n2xBG0dvNRQYOFpi2KUM3rIUbE"
+    )
 %}
-DELETE http://localhost:3000/api/item/delete/65a0b630dc02032a6befb3b5
+DELETE http://localhost:3000/api/item/delete/65a0c9fbdc02032a6befb3e3
+Content-Type: application/json;charset=UTF-8
 Authorization: Bearer {{token}}
+
+{
+  "email": "dummy1@gmail.com"
+}
+
 ###

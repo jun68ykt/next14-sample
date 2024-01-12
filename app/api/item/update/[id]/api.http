@@ -1,10 +1,6 @@
-GET http://localhost:3000/api/item/readsingle/659f94f53e0271b993c2e380
-Accept: application/json
-
-###
-
+// 既存ユーザーでログイン
 POST http://localhost:3000/api/user/login
-Content-Type: application/json;charset=UTF-8
+Content-Type: application/json
 
 {
   "email": "dummy1@gmail.com",
@@ -13,10 +9,27 @@ Content-Type: application/json;charset=UTF-8
 
 ###
 
-PUT http://localhost:3000/api/item/update/659f94f83e0271b993c2e384
+// 作成者がログインユーザーと異なるアイテムの内容を変更しようとするが失敗する(403エラー)
+PUT http://localhost:3000/api/item/update/659f94f83e0271b993c2e382
 Accept: application/json
 Content-Type: application/json;charset=UTF-8
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImR1bW15MUBnbWFpbC5jb20iLCJleHAiOjE3MDUxMTY4MTB9.F1wS3CWCRWZxqDolYyBqpIA-nVf7yJ8Dk9_c9_Xb-bw
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImR1bW15MUBnbWFpbC5jb20iLCJleHAiOjE3MDUxMjMxMjZ9.aSldxru2W6JomokJvr4BH0_OWK4lj7odebkTp4ehPBs
+
+{
+  "title": "仮タイトル999",
+  "image": "仮イメージ999",
+  "price": "1000999",
+  "description": "仮説明999",
+  "email": "dummy1@gmail.com"
+}
+
+###
+
+// 作成者がログインユーザーと同じアイテムの内容を変更して成功
+PUT http://localhost:3000/api/item/update/659f94f53e0271b993c2e380
+Accept: application/json
+Content-Type: application/json;charset=UTF-8
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImR1bW15MUBnbWFpbC5jb20iLCJleHAiOjE3MDUxMjMxMjZ9.aSldxru2W6JomokJvr4BH0_OWK4lj7odebkTp4ehPBs
 
 {
   "title": "仮タイトル1",
@@ -25,9 +38,3 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImR1bW15MUBnbWFpbC5jb20iL
   "description": "仮説明1",
   "email": "dummy1@gmail.com"
 }
-
-###
-
-GET http://localhost:3000/api/item/readsingle/659f94f53e0271b993c2e380
-Accept: application/json
-
