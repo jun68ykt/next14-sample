@@ -10,10 +10,25 @@ export async function PUT(request, context) {
 
     try {
         await connectDB()
-        await ItemModel.updateOne({ _id: id }, reqBody)
-        return NextResponse.json({message: "アイテム編集成功"})
+
+        const item = await ItemModel.findById(id)
+        if (!item) {
+            return NextResponse.json(
+                { message: "アイテム編集失敗", detail: "指定されたidのアイテムは存在しません" },
+                { status: 404 }
+            )
+        }
+
+        if (item.email === reqBody.email) {
+            await ItemModel.updateOne({ _id: id }, reqBody)
+            return new Response(null, { status: 204 })
+        } else {
+            return NextResponse.json(
+                { message: "アイテム編集失敗", detail: "他の人が作成したアイテムです。" },
+                { status: 403 }
+            )
+        }
     } catch (err) {
-        console.error(err)
-        return NextResponse.json({message: "アイテム編集失敗"})
+        return NextResponse.json({ message: "アイテム編集失敗", detail: `${err}` }, { status: 500 })
     }
 }
