@@ -7,7 +7,7 @@ import { ItemModel } from "@/app/utils/schemaModels";
 export async function PUT(request, context) {
     const reqBody = await request.json()
     const { id } = context.params
-    console.log(reqBody, id)
+
     try {
         await connectDB()
         await ItemModel.updateOne({ _id: id }, reqBody)
