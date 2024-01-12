@@ -1,5 +1,9 @@
+< {%
+    request.variables.set("token", "eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImR1bW15MUBnbWFpbC5jb20iLCJleHAiOjE3MDUxMTY4MTB9.F1wS3CWCRWZxqDolYyBqpIA-nVf7yJ8Dk9_c9_Xb-bw")
+%}
 POST http://localhost:3000/api/item/create
 Content-Type: application/json;charset=UTF-8
+Authorization: Bearer {{token}}
 
 {
   "title": "仮タイトル999",
@@ -10,8 +14,9 @@ Content-Type: application/json;charset=UTF-8
 }
 
 ###
-
-DELETE http://localhost:3000/api/item/delete/659ff3b23e0271b993c2e396
-Accept: application/json
-
+< {%
+    request.variables.set("token", "eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImR1bW15MUBnbWFpbC5jb20iLCJleHAiOjE3MDUxMTY4MTB9.F1wS3CWCRWZxqDolYyBqpIA-nVf7yJ8Dk9_c9_Xb-bw")
+%}
+DELETE http://localhost:3000/api/item/delete/65a0b630dc02032a6befb3b5
+Authorization: Bearer {{token}}
 ###

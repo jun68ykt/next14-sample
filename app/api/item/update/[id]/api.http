@@ -3,9 +3,20 @@ Accept: application/json
 
 ###
 
-PUT http://localhost:3000/api/item/update/659f94f53e0271b993c2e380
+POST http://localhost:3000/api/user/login
+Content-Type: application/json;charset=UTF-8
+
+{
+  "email": "dummy1@gmail.com",
+  "password": "password1"
+}
+
+###
+
+PUT http://localhost:3000/api/item/update/659f94f83e0271b993c2e384
 Accept: application/json
 Content-Type: application/json;charset=UTF-8
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImR1bW15MUBnbWFpbC5jb20iLCJleHAiOjE3MDUxMTY4MTB9.F1wS3CWCRWZxqDolYyBqpIA-nVf7yJ8Dk9_c9_Xb-bw
 
 {
   "title": "仮タイトル1",

@@ -1,5 +1,9 @@
+< {%
+    request.variables.set("token", "eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImR1bW15MUBnbWFpbC5jb20iLCJleHAiOjE3MDUxMTY4MTB9.F1wS3CWCRWZxqDolYyBqpIA-nVf7yJ8Dk9_c9_Xb-bw")
+%}
 POST http://localhost:3000/api/item/create
 Content-Type: application/json;charset=UTF-8
+Authorization: Bearer {{token}}
 
 {
   "title": "仮タイトル1",
@@ -10,9 +14,12 @@ Content-Type: application/json;charset=UTF-8
 }
 
 ###
-
+< {%
+    request.variables.set("token", "eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImR1bW15MUBnbWFpbC5jb20iLCJleHAiOjE3MDUxMTY4MTB9.F1wS3CWCRWZxqDolYyBqpIA-nVf7yJ8Dk9_c9_Xb-bw")
+%}
 POST http://localhost:3000/api/item/create
 Content-Type: application/json;charset=UTF-8
+Authorization: Bearer {{token}}
 
 {
   "title": "仮タイトル2",
@@ -23,9 +30,12 @@ Content-Type: application/json;charset=UTF-8
 }
 
 ###
-
+< {%
+    request.variables.set("token", "eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImR1bW15MUBnbWFpbC5jb20iLCJleHAiOjE3MDUxMTY4MTB9.F1wS3CWCRWZxqDolYyBqpIA-nVf7yJ8Dk9_c9_Xb-bw")
+%}
 POST http://localhost:3000/api/item/create
 Content-Type: application/json;charset=UTF-8
+Authorization: Bearer {{token}}
 
 {
   "title": "仮タイトル3",
