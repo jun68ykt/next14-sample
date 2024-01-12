@@ -3,24 +3,24 @@ POST http://localhost:3000/api/user/login
 Content-Type: application/json
 
 {
-  "email": "dummy1@gmail.com",
+  "email": "user1@example.com",
   "password": "password1"
 }
 
 ###
 
 // 作成者がログインユーザーと異なるアイテムの内容を変更しようとするが失敗する(403エラー)
-PUT http://localhost:3000/api/item/update/659f94f83e0271b993c2e382
+PUT http://localhost:3000/api/item/update/65a182fd784e50854cb7e5e6
 Accept: application/json
 Content-Type: application/json;charset=UTF-8
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImR1bW15MUBnbWFpbC5jb20iLCJleHAiOjE3MDUxMjMxMjZ9.aSldxru2W6JomokJvr4BH0_OWK4lj7odebkTp4ehPBs
 
 {
-  "title": "仮タイトル999",
-  "image": "仮イメージ999",
-  "price": "1000999",
-  "description": "仮説明999",
-  "email": "dummy1@gmail.com"
+  "title": "仮タイトル1",
+  "image": "仮イメージ1",
+  "price": "10001",
+  "description": "仮説明1",
+  "email": "user1@example.com"
 }
 
 ###
@@ -36,5 +36,5 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImR1bW15MUBnbWFpbC5jb20iL
   "image": "仮イメージ1",
   "price": "10001",
   "description": "仮説明1",
-  "email": "dummy1@gmail.com"
+  "email": "user1@example.com"
 }

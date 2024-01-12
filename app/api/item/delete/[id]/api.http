@@ -2,7 +2,7 @@ POST http://localhost:3000/api/user/login
 Content-Type: application/json
 
 {
-  "email": "dummy1@gmail.com",
+  "email": "user1@example.com",
   "password": "password1"
 }
 
@@ -23,7 +23,7 @@ Authorization: Bearer {{token}}
   "image": "仮イメージ9",
   "price": "10009",
   "description": "仮説明9",
-  "email": "dummy1@gmail.com"
+  "email": "user1@example.com"
 }
 
 ###
@@ -39,7 +39,7 @@ Content-Type: application/json;charset=UTF-8
 Authorization: Bearer {{token}}
 
 {
-  "email": "dummy1@gmail.com"
+  "email": "user1@example.com"
 }
 
 ###

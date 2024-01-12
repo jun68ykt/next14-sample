@@ -3,7 +3,7 @@ Content-Type: application/json;charset=UTF-8
 
 {
   "name": "仮名2",
-  "email": "dummy2@gmail.com",
+  "email": "user2@example.com",
   "password": "password2"
 }
 
