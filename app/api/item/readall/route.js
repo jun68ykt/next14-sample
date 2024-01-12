@@ -13,3 +13,5 @@ export async function GET() {
         return NextResponse.json({ message: "🙅アイテム読み取り失敗（オール）" })
     }
 }
+
+export const revalidate = 0
