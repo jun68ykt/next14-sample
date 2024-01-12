@@ -6,7 +6,7 @@ const db = {
     name: "nextAppDataBase",
     host: "cluster0.jlsyjzk.mongodb.net",
     user: "jun68ykt",
-    password: "VEAcMixDm6nJUSnq",
+    password: process.env.DB_PASSWORD,
     params: "retryWrites=true&w=majority"
 }
 const dbConnectionUrl = `mongodb+srv://${db.user}:${db.password}@${db.host}/${db.name}?${db.params}`
