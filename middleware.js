@@ -2,9 +2,19 @@
 
 import { NextResponse } from "next/server"
 
-export async function middleware() {
-    console.log("ミドルウェア")
-    return NextResponse.next()
+export async function middleware(request) {
+    const token = await request.headers.get("Authorization")?.split(" ")[1]
+
+    if (!token) {
+        return NextResponse.json({ message: "トークンがありません "})
+    }
+    try {
+        // TODO: トークンの妥当性検証をここで行う
+
+        return NextResponse.next()
+    } catch (err) {
+        return NextResponse.json({ message: "トークンが正しくないので、ログインしてください。"})
+    }
 }
 
 export const config = {
