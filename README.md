@@ -1,4 +1,6 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app), which contains codes
+referencing the book "[Next.jsでつくるフルスタックアプリ](https://www.amazon.co.jp/gp/product/B0CNXPW7K2)" written by 三好アキ[@monotein_](https://twitter.com/monotein_). 
+
 
 ## Getting Started
 
