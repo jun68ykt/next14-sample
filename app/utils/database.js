@@ -3,9 +3,9 @@
 import mongoose from "mongoose"
 
 const db = {
-    name: "nextAppDataBase",
-    host: "cluster0.jlsyjzk.mongodb.net",
-    user: "jun68ykt",
+    name:  process.env.DB_NAME,
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     params: "retryWrites=true&w=majority"
 }
