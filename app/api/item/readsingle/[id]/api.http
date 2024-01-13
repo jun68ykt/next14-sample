@@ -1,4 +1,0 @@
-GET http://localhost:3000/api/item/readsingle/659f94f83e0271b993c2e382
-Accept: application/json
-
-###
