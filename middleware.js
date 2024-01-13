@@ -3,8 +3,7 @@
 import { NextResponse } from "next/server"
 import { jwtVerify } from "jose";
 
-const SECRET_KEY = "next-market-app-book"
-export const secretKey = new TextEncoder().encode(SECRET_KEY)
+export const secretKey = new TextEncoder().encode(process.env.SECRET_KEY)
 
 export async function middleware(request) {
     const auth = await request.headers.get("Authorization")
