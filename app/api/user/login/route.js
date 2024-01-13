@@ -25,10 +25,10 @@ export async function POST(request) {
                 return NextResponse.json({ message: "ログイン成功", token })
             }
 
-            return NextResponse.json({ message: "ログイン失敗: パスワードが間違っています" })
+            return NextResponse.json({ message: "ログイン失敗", detail: "パスワードが間違っています" }, { status: 401 })
         }
-        return NextResponse.json({ message: "ログイン失敗: ユーザー登録をしてください" })
+        return NextResponse.json({ message: "ログイン失敗", detail: "存在しないユーザーです。" }, { status: 401 })
     } catch (err) {
-        return NextResponse.json({ message: "ログイン失敗" })
+        return NextResponse.json({ message: "ログイン失敗", detail: err.message }, { status: 401 })
     }
 }
