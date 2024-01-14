@@ -12,6 +12,6 @@ export async function POST(request) {
         await UserModel.create(reqBody)
         return NextResponse.json({ message: "ユーザー登録成功" })
     } catch (err) {
-        return NextResponse.json({ message: "ユーザー登録失敗" })
+        return NextResponse.json({ message: "ユーザー登録失敗", detail: err.message }, { status: 400 })
     }
 }
