@@ -2,6 +2,9 @@
 
 import {useState} from "react";
 
+const API_URL_BASE = "http://localhost:3000/api/"
+const LOGIN_API_URL = `${API_URL_BASE}/user/login`
+
 const UserLogin = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -11,11 +14,19 @@ const UserLogin = () => {
     setter?.(value)
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
 
     try {
-      // TODO: ログインAPIをリクエスト
+      const body = JSON.stringify({email, password})
+      const headers = {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      }
+      const resp = await fetch(LOGIN_API_URL, {method: "POST", headers, body})
+
+      console.log(resp)
+
     } catch (err) {
     }
   }
