@@ -12,10 +12,21 @@ const ItemCreate = () => {
     setItem({...item, [name]: value})
   }
 
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+
+    try {
+      // TODO: アイテム登録APIをリクエスト
+      console.log("アイテム登録APIをリクエスト")
+    } catch (err) {
+
+    }
+  }
+
   return (
     <div>
       <h1>アイテム作成</h1>
-      <form>
+      <form onSubmit={handleSubmit}>
         <input type="text" name="title" placeholder="アイテム名" onChange={handleChange} required/>
         <input type="text" name="price" placeholder="価格" onChange={handleChange} required/>
         <input type="text" name="image" placeholder="画像" onChange={handleChange} required/>
