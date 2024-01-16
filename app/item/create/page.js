@@ -31,7 +31,7 @@ const ItemCreate = () => {
 
       alert(`アイテム作成成功`)
     } catch(err) {
-      alert(`ユーザー登録失敗\n\n理由: ${err.message}`)
+      alert(`アイテム作成失敗\n\n理由: ${err.message}`)
     }
   }
 
