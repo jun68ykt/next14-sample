@@ -13,7 +13,7 @@ const ItemBox = ({item: {image, price, title, description}}) => (
     <Image src={image} width={750} height={500} alt="item-image" priority />
     <h2>{price}</h2>
     <h3>{title}</h3>
-    <p>{description}</p>
+    <p>{description.substring(0, 80)}...</p>
   </Link>
 )
 
