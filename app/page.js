@@ -1,7 +1,7 @@
 // app/page.js
 
 const getAllItems = async () => {
-  const resp = await fetch("http://localhost:3000/api/item/readall")
+  const resp = await fetch("http://localhost:3000/api/item/readall", {cache: "no-store"})
   const {items} = await resp.json()
   return items
 }
