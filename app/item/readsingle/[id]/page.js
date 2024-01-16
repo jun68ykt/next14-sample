@@ -1,9 +1,10 @@
-const ItemRead = () => {
+// app/item/readsingle/[id]/page.js
+
+const ReadSingleItem = (context) => {
+  console.log(context)
   return (
-    <div>
-      <h1>アイテム読み込み</h1>
-    </div>
+    <h1>個別アイテムページ</h1>
   )
 }
 
-export default ItemRead
+export default ReadSingleItem
