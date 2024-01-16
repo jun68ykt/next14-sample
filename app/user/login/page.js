@@ -1,13 +1,13 @@
 "use client"
 
-import { useState } from "react";
+import {useState} from "react";
 
 const UserLogin = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
-  const handleChange = ({ target: { name, value }}) => {
-    const setter = { email: setEmail, password: setPassword }[name]
+  const handleChange = ({target: {name, value}}) => {
+    const setter = {email: setEmail, password: setPassword}[name]
     setter?.(value)
   }
 
