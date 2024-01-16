@@ -28,6 +28,10 @@ const UserLogin = () => {
       if (!resp.ok)
         throw new Error(data.detail)
 
+      // ログインが成功したのでtokenをローカルストレージに保存する
+      console.log(data)
+      localStorage.setItem("token", data.token)
+
       alert(`ログイン成功`)
     } catch (err) {
       alert(`ログイン失敗 理由: ${err.message}`)
