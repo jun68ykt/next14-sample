@@ -2,9 +2,6 @@
 
 import {useState} from "react";
 
-const API_URL_BASE = "http://localhost:3000/api/"
-const LOGIN_API_URL = `${API_URL_BASE}/user/login`
-
 const INIT_USER = {name: "", email: ""}
 
 const UserLogin = () => {
