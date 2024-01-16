@@ -6,7 +6,6 @@ const INIT_ITEM = {title: "", price: "", image: "", description: ""}
 
 const ItemCreate = () => {
   const [item, setItem] = useState(INIT_ITEM)
-  console.log("item", item)
 
   const handleChange = ({target: {name, value}}) => {
     setItem({...item, [name]: value})
@@ -16,10 +15,22 @@ const ItemCreate = () => {
     event.preventDefault()
 
     try {
-      // TODO: アイテム登録APIをリクエスト
-      console.log("アイテム登録APIをリクエスト")
-    } catch (err) {
+      const options = {
+        method: 'POST',
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json; charset=utf-8",
+        },
+        body: JSON.stringify({...item, email: "dummy-email@xxx.yyy"})  // TODO: 後でログインユーザーのメアドに置き換え
+      }
+      const res = await fetch("http://localhost:3000/api/item/create", options)
+      const resBody = await res.json()
+      if (!res.ok)
+        throw new Error(resBody.detail)
 
+      alert(`アイテム作成成功`)
+    } catch(err) {
+      alert(`ユーザー登録失敗\n\n理由: ${err.message}`)
     }
   }
 
