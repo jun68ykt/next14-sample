@@ -1,11 +1,11 @@
 "use client"
 import { useState } from "react"
 
+const INIT_USER = {name: "", email: "", password: ""}
+
 const UserRegister = () => {
 
-  const [name, setName] = useState("")
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
+  const [user, setUser] = useState(INIT_USER)
 
   const handleSubmit = async (event) => {
     event.preventDefault()
@@ -16,7 +16,7 @@ const UserRegister = () => {
           Accept: "application/json",
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ name, email, password })
+        body: JSON.stringify(user)
       }
       const res = await fetch("http://localhost:3000/api/user/register", options)
       const resBody = await res.json()
@@ -29,9 +29,8 @@ const UserRegister = () => {
     }
   }
 
-  const handleChange = ({ target }) => {
-    const setter = { name: setName, email: setEmail, password: setPassword}[target.name]
-    setter(target.value)
+  const handleChange = ({ target: {name, value} }) => {
+    setUser({...user, [name]: value})
   }
 
   return (

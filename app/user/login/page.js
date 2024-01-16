@@ -5,37 +5,38 @@ import {useState} from "react";
 const API_URL_BASE = "http://localhost:3000/api/"
 const LOGIN_API_URL = `${API_URL_BASE}/user/login`
 
-const UserLogin = () => {
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
+const INIT_USER = {name: "", email: ""}
 
-  const handleChange = ({target: {name, value}}) => {
-    const setter = {email: setEmail, password: setPassword}[name]
-    setter?.(value)
-  }
+const UserLogin = () => {
+  const [user, setUser] = useState(INIT_USER)
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-
     try {
-      const body = JSON.stringify({email, password})
-      const headers = {
-        Accept: "application/json",
-        "Content-Type": "application/json",
+      const options = {
+        method: 'POST',
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user)
       }
-      const resp = await fetch(LOGIN_API_URL, {method: "POST", headers, body})
-      const data = await resp.json()
-      if (!resp.ok)
-        throw new Error(data.detail)
+      const res = await fetch("http://localhost:3000/api/user/login", options)
+      const resBody = await res.json()
+      if (!res.ok)
+        throw new Error(resBody.detail)
 
-      // ログインが成功したのでtokenをローカルストレージに保存する
-      console.log(data)
-      localStorage.setItem("token", data.token)
+      // ログイン成功時
+      localStorage.setItem("token", resBody.token)
 
       alert(`ログイン成功`)
-    } catch (err) {
-      alert(`ログイン失敗 理由: ${err.message}`)
+    } catch(err) {
+      alert(`ログイン失敗\n\n理由: ${err.message}`)
     }
+  }
+
+  const handleChange = ({ target: {name, value} }) => {
+    setUser({...user, [name]: value})
   }
 
   return (
