@@ -21,7 +21,7 @@ const ReadAllItems = async () => {
   return (
     <div>
       <h1 className="h1-style">こんにちは</h1>
-      {items.map(item => <ItemBox item={item} />)}
+      {items.map(item => <ItemBox key={item._id} item={item} />)}
     </div>
   )
 }
