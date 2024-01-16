@@ -10,7 +10,10 @@ export async function middleware(request) {
     const token = auth?.split(" ")[1]
 
     if (!token) {
-        return NextResponse.json({ message: "トークンがありません", detail: `Authorizationヘッダ: ${auth}` })
+        return NextResponse.json(
+          { message: "トークンがありません", detail: `Authorizationヘッダ: ${auth}` },
+          { status: 401 }
+          )
     }
     try {
         const decodedJwt = await jwtVerify(token, secretKey)
@@ -18,7 +21,10 @@ export async function middleware(request) {
 
         return NextResponse.next()
     } catch (err) {
-        return NextResponse.json({ message: "トークンが正しくないので、ログインしてください。", detail: `${err}` })
+        return NextResponse.json(
+          { message: "トークンが正しくないので、ログインしてください。", detail: `${err}` },
+          { status: 401 }
+        )
     }
 }
 
