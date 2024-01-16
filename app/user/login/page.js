@@ -24,10 +24,13 @@ const UserLogin = () => {
         "Content-Type": "application/json",
       }
       const resp = await fetch(LOGIN_API_URL, {method: "POST", headers, body})
+      const data = await resp.json()
+      if (!resp.ok)
+        throw new Error(data.detail)
 
-      console.log(resp)
-
+      alert(`ログイン成功`)
     } catch (err) {
+      alert(`ログイン失敗 理由: ${err.message}`)
     }
   }
 

@@ -27,7 +27,7 @@ export async function POST(request) {
 
             return NextResponse.json({ message: "ログイン失敗", detail: "パスワードが間違っています" }, { status: 401 })
         }
-        return NextResponse.json({ message: "ログイン失敗", detail: "存在しないユーザーです。" }, { status: 401 })
+        return NextResponse.json({ message: "ログイン失敗", detail: "存在しないユーザーです。" }, { status: 404 })
     } catch (err) {
         return NextResponse.json({ message: "ログイン失敗", detail: err.message }, { status: 401 })
     }
