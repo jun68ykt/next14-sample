@@ -1,5 +1,6 @@
 // app/page.js
 import Image from "next/image"
+import Link from "next/link";
 
 const getAllItems = async () => {
   const resp = await fetch("http://localhost:3000/api/item/readall", {cache: "no-store"})
@@ -8,12 +9,12 @@ const getAllItems = async () => {
 }
 
 const ItemBox = ({item}) => (
-  <div>
+  <Link href="">
     <Image src={item.image} width={750} height={500} alt="item-image" priority/>
     <h2>{item.price}</h2>
     <h3>{item.title}</h3>
     <p>{item.description}</p>
-  </div>
+  </Link>
 )
 
 const ReadAllItems = async () => {
