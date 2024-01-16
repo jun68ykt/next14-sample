@@ -20,6 +20,7 @@ const ItemCreate = () => {
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json; charset=utf-8",
+          Authorization: `Bearer ${localStorage.getItem("token")}`
         },
         body: JSON.stringify({...item, email: "dummy-email@xxx.yyy"})  // TODO: 後でログインユーザーのメアドに置き換え
       }
