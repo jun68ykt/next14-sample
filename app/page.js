@@ -8,8 +8,8 @@ const getAllItems = async () => {
   return items
 }
 
-const ItemBox = ({item: {image, price, title, description}}) => (
-  <Link href="">
+const ItemBox = ({item: {_id, image, price, title, description}}) => (
+  <Link href={`/item/readsingle/${_id}`}>
     <Image src={image} width={750} height={500} alt="item-image" priority />
     <h2>{price}</h2>
     <h3>{title}</h3>
