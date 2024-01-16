@@ -1,3 +1,5 @@
+"use client"
+
 const UserLogin = () => {
   return (
     <div>
