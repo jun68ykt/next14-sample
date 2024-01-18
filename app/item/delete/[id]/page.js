@@ -1,10 +1,11 @@
 "use client"
 
 import {useEffect, useState} from "react";
+import Image from "next/image"
 
 const INIT_ITEM = {title: "", price: "", image: "", description: "", email: ""}
 
-const ItemUpdate = (context) => {
+const ItemDelete = (context) => {
   const [item, setItem] = useState(INIT_ITEM)
 
   const handleChange = ({target: {name, value}}) => {
@@ -16,24 +17,24 @@ const ItemUpdate = (context) => {
 
     try {
       const options = {
-        method: 'PUT',
+        method: 'DELETE',
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json; charset=utf-8",
           Authorization: `Bearer ${localStorage.getItem("token")}`
         },
-        body: JSON.stringify(item)
+        body: JSON.stringify({email: item.email})
       }
-      const url = `http://localhost:3000/api/item/update/${context.params.id}`
+      const url = `http://localhost:3000/api/item/delete/${context.params.id}`
       const res = await fetch(url, options)
       if (!res.ok) {
         const resBody = await res.json()
         throw new Error(resBody.detail)
       }
 
-      alert(`アイテム編集成功`)
+      alert(`アイテム削除成功`)
     } catch (err) {
-      alert(`アイテム編集失敗\n\n理由: ${err.message}`)
+      alert(`アイテム削除失敗\n\n理由: ${err.message}`)
     }
   }
 
@@ -48,23 +49,18 @@ const ItemUpdate = (context) => {
 
   return (
     <div>
-      <h1>アイテム編集</h1>
+      <h1>アイテム削除</h1>
       <form onSubmit={handleSubmit}>
-        <input type="text" name="title" value={item.title} placeholder="アイテム名" onChange={handleChange} required/>
-        <input type="text" name="price" value={item.price} placeholder="価格" onChange={handleChange} required/>
-        <input type="text" name="image" value={item.image} placeholder="画像" onChange={handleChange} required/>
-        <textarea
-          name="description"
-          value={item.description}
-          rows={15}
-          placeholder="商品説明"
-          onChange={handleChange}
-          required
-        />
-        <button>編集</button>
+        <h2>{item.title}</h2>
+        {item.image &&
+          <Image src={item.image} width={750} height={500} alt="item-image" priority/>
+        }
+        <h3>¥{item.price}</h3>
+        <p>{item.description}</p>
+        <button>削除</button>
       </form>
     </div>
   )
 }
 
-export default ItemUpdate
+export default ItemDelete
