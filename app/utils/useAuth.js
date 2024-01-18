@@ -16,7 +16,7 @@ const useAuth = () => {
         return
       }
       try {
-        const decodedJWT = jwtVerify(token, secretKey)
+        const decodedJWT = await jwtVerify(token, secretKey)
         setLoginUserEmail(decodedJWT.payload.email)
       } catch (error) {
         localStorage.removeItem("token")
