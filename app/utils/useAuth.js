@@ -2,7 +2,8 @@
 import {useEffect, useState} from "react"
 import {useRouter} from "next/navigation"
 import {jwtVerify} from "jose"
-import {secretKey} from "@/middleware"
+
+const secretKey = new TextEncoder().encode(process.env.NEXT_PUBLIC_SECRET_KEY)
 
 const useAuth = () => {
   const [loginUserEmail, setLoginUserEmail] = useState("")
