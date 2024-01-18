@@ -1,11 +1,13 @@
 "use client"
 
 import {useState} from "react";
+import useAuth from "@/app/utils/useAuth";
 
 const INIT_ITEM = {title: "", price: "", image: "", description: ""}
 
 const ItemCreate = () => {
   const [item, setItem] = useState(INIT_ITEM)
+  const { loginUserEmail } = useAuth()
 
   const handleChange = ({target: {name, value}}) => {
     setItem({...item, [name]: value})
@@ -22,7 +24,7 @@ const ItemCreate = () => {
           "Content-Type": "application/json; charset=utf-8",
           Authorization: `Bearer ${localStorage.getItem("token")}`
         },
-        body: JSON.stringify({...item, email: "dummy-email@xxx.yyy"})  // TODO: 後でログインユーザーのメアドに置き換え
+        body: JSON.stringify({...item, email: loginUserEmail})
       }
       const res = await fetch("http://localhost:3000/api/item/create", options)
       const resBody = await res.json()
