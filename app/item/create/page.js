@@ -48,10 +48,10 @@ const ItemCreate = () => {
           }}
         />
         <form onSubmit={handleSubmit}>
-          <input type="text" name="title" placeholder="アイテム名" onChange={handleChange} required/>
-          <input type="text" name="price" placeholder="価格" onChange={handleChange} required/>
-          <input type="text" name="image" placeholder="画像" onChange={handleChange} required/>
-          <textarea name="description" rows={15} placeholder="商品説明" onChange={handleChange} required></textarea>
+          <input value={item.title} type="text" name="title" placeholder="アイテム名" onChange={handleChange} required/>
+          <input value={item.price} type="text" name="price" placeholder="価格" onChange={handleChange} required/>
+          <input value={item.image} type="text" name="image" placeholder="画像" onChange={handleChange} required/>
+          <textarea value={item.description} name="description" rows={15} placeholder="商品説明" onChange={handleChange} required></textarea>
           <button>作成</button>
         </form>
       </div>
