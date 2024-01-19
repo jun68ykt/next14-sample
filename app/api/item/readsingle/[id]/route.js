@@ -6,8 +6,6 @@ import { ItemModel } from "@/app/utils/schemaModels";
 
 export async function GET(request, context) {
     const { id } = context.params
-    console.log(`id: ${id}`)
-
     try {
         await connectDB()
         const item = await ItemModel.findById(id);
