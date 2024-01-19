@@ -7,6 +7,7 @@ import useAuth from "@/app/utils/useAuth";
 const INIT_ITEM = {title: "", price: "", image: "", description: "", email: ""}
 
 const ItemDelete = (context) => {
+  const [loading, setLoading] = useState(true)  // TODO: Suspenseの基礎を習得後、loading.js の使用で置き換える
   const [item, setItem] = useState(INIT_ITEM)
   const { loginUserEmail } = useAuth()
 
@@ -46,8 +47,13 @@ const ItemDelete = (context) => {
       const resp = await fetch(url, {cache: "no-store"})
       const {item: {title, price, image, description, email}} = await resp.json()
       setItem({title, price, image, description, email})
+      setLoading(false)
     })(context.params.id)
   }, [context]);
+
+  if (loading) {
+    return <h1>loading…</h1>
+  }
 
   return (
     <div>
