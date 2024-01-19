@@ -2,11 +2,13 @@
 
 import {useEffect, useState} from "react";
 import Image from "next/image"
+import useAuth from "@/app/utils/useAuth";
 
 const INIT_ITEM = {title: "", price: "", image: "", description: "", email: ""}
 
 const ItemDelete = (context) => {
   const [item, setItem] = useState(INIT_ITEM)
+  const { loginUserEmail } = useAuth()
 
   const handleChange = ({target: {name, value}}) => {
     setItem({...item, [name]: value})
@@ -50,15 +52,21 @@ const ItemDelete = (context) => {
   return (
     <div>
       <h1>アイテム削除</h1>
-      <form onSubmit={handleSubmit}>
-        <h2>{item.title}</h2>
-        {item.image &&
-          <Image src={item.image} width={750} height={500} alt="item-image" priority/>
-        }
-        <h3>¥{item.price}</h3>
-        <p>{item.description}</p>
-        <button>削除</button>
-      </form>
+      {item.email === loginUserEmail ? (
+        <form onSubmit={handleSubmit}>
+          <h2>{item.title}</h2>
+          {item.image &&
+            <Image src={item.image} width={750} height={500} alt="item-image" priority/>
+          }
+          <h3>¥{item.price}</h3>
+          <p>{item.description}</p>
+          <button>削除</button>
+        </form>
+      ) : (
+        <div>
+          <h1>権限がありません</h1>
+        </div>
+      )}
     </div>
   )
 }

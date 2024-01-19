@@ -1,11 +1,13 @@
 "use client"
 
 import {useEffect, useState} from "react";
+import useAuth from "@/app/utils/useAuth";
 
 const INIT_ITEM = {title: "", price: "", image: "", description: "", email: ""}
 
 const ItemUpdate = (context) => {
   const [item, setItem] = useState(INIT_ITEM)
+  const { loginUserEmail } = useAuth()
 
   const handleChange = ({target: {name, value}}) => {
     setItem({...item, [name]: value})
@@ -49,20 +51,26 @@ const ItemUpdate = (context) => {
   return (
     <div>
       <h1>アイテム編集</h1>
-      <form onSubmit={handleSubmit}>
-        <input type="text" name="title" value={item.title} placeholder="アイテム名" onChange={handleChange} required/>
-        <input type="text" name="price" value={item.price} placeholder="価格" onChange={handleChange} required/>
-        <input type="text" name="image" value={item.image} placeholder="画像" onChange={handleChange} required/>
-        <textarea
-          name="description"
-          value={item.description}
-          rows={15}
-          placeholder="商品説明"
-          onChange={handleChange}
-          required
-        />
-        <button>編集</button>
-      </form>
+      {item.email === loginUserEmail ? (
+        <form onSubmit={handleSubmit}>
+          <input type="text" name="title" value={item.title} placeholder="アイテム名" onChange={handleChange} required/>
+          <input type="text" name="price" value={item.price} placeholder="価格" onChange={handleChange} required/>
+          <input type="text" name="image" value={item.image} placeholder="画像" onChange={handleChange} required/>
+          <textarea
+            name="description"
+            value={item.description}
+            rows={15}
+            placeholder="商品説明"
+            onChange={handleChange}
+            required
+          />
+          <button>編集</button>
+        </form>
+      ) : (
+        <div>
+          <h1>権限がありません</h1>
+        </div>
+      )}
     </div>
   )
 }
