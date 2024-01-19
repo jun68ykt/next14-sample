@@ -6,16 +6,12 @@ import {jwtVerify} from "jose"
 const secretKey = new TextEncoder().encode(process.env.NEXT_PUBLIC_SECRET_KEY)
 
 const useAuth = () => {
-  const [loginUserEmail, setLoginUserEmail] = useState("")
+  const [loginUserEmail, setLoginUserEmail] = useState(null)
   const router = useRouter()
 
   useEffect(() => {
     (async () => {
       const token = localStorage.getItem("token")
-      if (!token) {
-        router.push("/user/login")
-        return
-      }
       try {
         const decodedJWT = await jwtVerify(token, secretKey)
         setLoginUserEmail(decodedJWT.payload.email)
