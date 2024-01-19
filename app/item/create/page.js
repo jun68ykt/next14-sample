@@ -2,6 +2,7 @@
 
 import {useState} from "react";
 import useAuth from "@/app/utils/useAuth";
+import ImgInput from "@/app/components/imgInput";
 
 const INIT_ITEM = {title: "", price: "", image: "", description: ""}
 
@@ -41,6 +42,11 @@ const ItemCreate = () => {
     loginUserEmail && (
       <div>
         <h1 className="page-title">アイテム作成</h1>
+        <ImgInput
+          setImage={(image) => {
+            setItem({...item, image})
+          }}
+        />
         <form onSubmit={handleSubmit}>
           <input type="text" name="title" placeholder="アイテム名" onChange={handleChange} required/>
           <input type="text" name="price" placeholder="価格" onChange={handleChange} required/>
