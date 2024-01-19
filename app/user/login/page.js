@@ -38,7 +38,7 @@ const UserLogin = () => {
 
   return (
     <div>
-      <h1>ログイン</h1>
+      <h1 className="page-title">ログイン</h1>
       <form onSubmit={handleSubmit}>
         <input type="text" name="email" onChange={handleChange} placeholder="メールアドレス" required/>
         <input type="text" name="password" onChange={handleChange} placeholder="パスワード" required/>

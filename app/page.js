@@ -21,8 +21,7 @@ const ReadAllItems = async () => {
   const items = await getAllItems()
 
   return (
-    <div>
-      <h1 className="h1-style">こんにちは</h1>
+    <div className="grid-container-in">
       {items.map(item => <ItemBox key={item._id} item={item} />)}
     </div>
   )

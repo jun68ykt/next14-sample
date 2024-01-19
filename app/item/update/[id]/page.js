@@ -50,7 +50,7 @@ const ItemUpdate = (context) => {
 
   return (
     <div>
-      <h1>アイテム編集</h1>
+      <h1 className="page-title">アイテム編集</h1>
       {item.email === loginUserEmail ? (
         <form onSubmit={handleSubmit}>
           <input type="text" name="title" value={item.title} placeholder="アイテム名" onChange={handleChange} required/>

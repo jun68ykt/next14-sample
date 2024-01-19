@@ -40,7 +40,7 @@ const ItemCreate = () => {
   return (
     loginUserEmail && (
       <div>
-        <h1>アイテム作成</h1>
+        <h1 className="page-title">アイテム作成</h1>
         <form onSubmit={handleSubmit}>
           <input type="text" name="title" placeholder="アイテム名" onChange={handleChange} required/>
           <input type="text" name="price" placeholder="価格" onChange={handleChange} required/>

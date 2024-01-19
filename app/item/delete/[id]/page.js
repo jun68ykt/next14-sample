@@ -51,7 +51,7 @@ const ItemDelete = (context) => {
 
   return (
     <div>
-      <h1>アイテム削除</h1>
+      <h1 className="page-title">アイテム削除</h1>
       {item.email === loginUserEmail ? (
         <form onSubmit={handleSubmit}>
           <h2>{item.title}</h2>
