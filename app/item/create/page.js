@@ -26,7 +26,7 @@ const ItemCreate = () => {
         },
         body: JSON.stringify({...item, email: loginUserEmail})
       }
-      const res = await fetch("http://localhost:3000/api/item/create", options)
+      const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/item/create`, options)
       const resBody = await res.json()
       if (!res.ok)
         throw new Error(resBody.detail)

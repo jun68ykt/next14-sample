@@ -18,7 +18,7 @@ const UserRegister = () => {
         },
         body: JSON.stringify(user)
       }
-      const res = await fetch("http://localhost:3000/api/user/register", options)
+      const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/user/register`, options)
       const resBody = await res.json()
       if (!res.ok)
         throw new Error(resBody.detail)

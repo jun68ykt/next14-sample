@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const getSingleItem = async (id) => {
-  const url = `http://localhost:3000/api/item/readsingle/${id}`
+  const url = `${process.env.NEXT_PUBLIC_URL}/api/item/readsingle/${id}`
   const resp = await fetch(url, {cache: "no-store"})
   const { item } = await resp.json()
   return item

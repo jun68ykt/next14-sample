@@ -26,7 +26,7 @@ const ItemUpdate = (context) => {
         },
         body: JSON.stringify(item)
       }
-      const url = `http://localhost:3000/api/item/update/${context.params.id}`
+      const url = `${process.env.NEXT_PUBLIC_URL}/api/item/update/${context.params.id}`
       const res = await fetch(url, options)
       if (!res.ok) {
         const resBody = await res.json()
@@ -41,7 +41,7 @@ const ItemUpdate = (context) => {
 
   useEffect(() => {
     (async (id) => {
-      const url = `http://localhost:3000/api/item/readsingle/${id}`
+      const url = `${process.env.NEXT_PUBLIC_URL}/api/item/readsingle/${id}`
       const resp = await fetch(url, {cache: "no-store"})
       const {item: {title, price, image, description, email}} = await resp.json()
       setItem({title, price, image, description, email})
